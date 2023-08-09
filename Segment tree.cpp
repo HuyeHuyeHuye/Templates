@@ -98,15 +98,15 @@ int segtree(int node, int l, int r, int L, int R, int v){ //update and query
 void build_segtree(vi &a, int &n){ //build the segtree
 	//change the code as needed
 	while(__builtin_popcount(n) != 1){
-    	a.pb(inf); //maybe needed to change
-    	n++;
-    }
-    trees.resize(2*n);
+	    a.pb(inf); //maybe needed to change
+	    n++;
+	}
+	trees.resize(2*n);
     
-    f(i,0,n) trees[i+n] = a[i];
-    for(int i = n - 1; i >= 1; i--){
-    	trees[i] = min(trees[i*2] , trees[i*2+1]); //maybe needed to change
-    }
+	f(i,0,n) trees[i+n] = a[i];
+	for(int i = n - 1; i >= 1; i--){
+		trees[i] = min(trees[i*2] , trees[i*2+1]); //maybe needed to change
+	}
 }
 
 
