@@ -119,8 +119,9 @@ int main()
     	cin >> n >> q;
     	vi a(n);
     	f(i,0,n) cin >> a[i];
-    	
-    	build_segtree(a , n); //be careful about value of n,,,maybe changed
+
+	int sz = n;
+    	build_segtree(a , sz);
     	
     	//query and update
     	while(q--){
@@ -130,13 +131,13 @@ int main()
 	    		int k,u;
 	    		cin >> k >> u;
 	    		k--;
-	    		segtree(1, 0, n-1, k, k, u); //update kth index by u
+	    		segtree(1, 0, sz-1, k, k, u); //update kth index by u
 	    	}
 	    	else{
 	    		int a,b;
 	    		cin >> a >> b;
 	    		a--,b--;
-	    		cout << segtree(1, 0, n-1, a, b, -1) << endl; //query in a given range
+	    		cout << segtree(1, 0, sz-1, a, b, -1) << endl; //query in a given range
 	    	}
     	}
     }
