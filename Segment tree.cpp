@@ -88,8 +88,8 @@ int segtree(int node, int l, int r, int L, int R, int v){ //update and query
 	}
 	if(R < l || r < L) return inf; //maybe needed to change
 	
-	int last = (l + r) / 2;
-	int mn = min(segtree(node*2, l, last, L, R, v),segtree(node*2+1, last+1, r, L, R, v)); //maybe needed to change
+	int mid = (l + r) / 2;
+	int mn = min(segtree(node*2, l, mid, L, R, v),segtree(node*2+1, mid+1, r, L, R, v)); //maybe needed to change
 	trees[node] = min(trees[node*2] , trees[node*2+1]); //this line is for update any value and maybe needed to change
 	return mn;
 }
