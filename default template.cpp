@@ -70,8 +70,8 @@ ll INV(ll x, ll m){x %= m;return binpow(x , m - 2, m);}
 #define TestCase    int TT; cin >> TT;for(int zz=1;zz<=TT;zz++)
 #define FASTIO  ios::sync_with_stdio(0);cin.tie(0);cout.tie(0);
 #define all(a)   a.begin(),a.end()
-#define f(i,a,b)  for(int i=a;i<b;i++)
-#define rf(i,a,b)  for(int i=b-1;i>=a;i--)
+#define FOR(i,a,b)  for(int i=a;i<b;i++)
+#define FORN(i,a,b)  for(int i=b-1;i>=a;i--)
 #define rep(i,a,b)  for(int i=a;i<=b;i++)
 #define rev(i,a,b)  for(int i=b;i>=a;i--)
 #define fs(val,y)   fixed<<setprecision(y)<<val
