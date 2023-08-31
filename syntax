@@ -1,4 +1,4 @@
-//structure with operator overloading (sorting)
+// structure with operator overloading (sorting)
 struct tupple{
 	int l,r,idx;
 	bool operator<(const tupple &x) const{
@@ -7,7 +7,7 @@ struct tupple{
 };
 
 // dp ... all possible sum (here N = maximum possible total sum + constant;)
-      vi dp(N);
+        vi dp(N);
     	dp[0] = 1;
     	for(int i = 1; i <= n; i++){
     		for(int j = N - 1; j >= 0; j--){
@@ -16,7 +16,7 @@ struct tupple{
     	}
      
 // by using bitset
-      bitset < N > dp;
+        bitset < N > dp;
     	dp[0] = 1;
     	for(int i = 1; i <= n; i++){
     		dp |= dp << s[i];
@@ -24,7 +24,7 @@ struct tupple{
 
      
 //bitset pass by reference
-bool is_ok(ibitset< N > &dp){
+bool is_ok(bitset< N > &dp){
 	....
 }
 // make zero all the bits of a bitset
