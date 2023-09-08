@@ -39,3 +39,9 @@ bool is_ok(bitset< N > &dp){
                 }
             }
         }
+
+// unique all funciton
+// i) total unique elements:
+    int e = unique(all(a)) - a.begin();
+// ii) erase duplicate and make all elements unique
+    a.erase(unique(all(a)),a.end());
