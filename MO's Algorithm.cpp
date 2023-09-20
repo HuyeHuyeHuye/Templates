@@ -19,8 +19,8 @@ struct Query {
     }
 };
 
-vector<int> mo_s_algorithm(vector<Query> queries) {
-    vector<int> answers(queries.size());
+vector < int > mo_s_algorithm(vector < Query > queries) {
+    vector < int > answers(queries.size());
     sort(queries.begin(), queries.end());
 
     // TODO: initialize data structure
