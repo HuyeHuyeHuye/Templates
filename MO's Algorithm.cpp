@@ -10,8 +10,6 @@ void remove(int idx);  // TODO: remove value at idx from data structure
 void add(int idx);     // TODO: add value at idx from data structure
 int get_answer();  // TODO: extract the current answer of the data structure
 
-int block_size = BLOCK_SIZE;
-
 struct Query {
     int l, r, idx;
     bool operator<(Query other) const
