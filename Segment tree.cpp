@@ -52,7 +52,9 @@ size_t operator()(uint64_t x) const {
     return splitmix64(x + FIXED_RANDOM);
 }
 };
+
 ll binpow(ll a,ll b,ll m){ll res=1;while(b>0){if(b&1)res=(res*a)%m;a=(a*a)%m;b/=2;}return res;}
+ll INV(ll x, ll m){x %= m;return binpow(x , m - 2, m);}
 
 #define pii   pair <int, int>
 #define pll   pair <ll, ll>
@@ -68,8 +70,8 @@ ll binpow(ll a,ll b,ll m){ll res=1;while(b>0){if(b&1)res=(res*a)%m;a=(a*a)%m;b/=
 #define TestCase    int TT; cin >> TT;for(int zz=1;zz<=TT;zz++)
 #define FASTIO  ios::sync_with_stdio(0);cin.tie(0);cout.tie(0);
 #define all(a)   a.begin(),a.end()
-#define f(i,a,b)  for(int i=a;i<b;i++)
-#define rf(i,a,b)  for(int i=b-1;i>=a;i--)
+#define FOR(i,a,b)  for(int i=a;i<b;i++)
+#define FORN(i,a,b)  for(int i=b-1;i>=a;i--)
 #define rep(i,a,b)  for(int i=a;i<=b;i++)
 #define rev(i,a,b)  for(int i=b;i>=a;i--)
 #define fs(val,y)   fixed<<setprecision(y)<<val
@@ -77,36 +79,35 @@ const long long N = 2e5 + 5, M = 1e9 + 7, mod = 998244353, INF = 1e18, inf = INT
 int fx[] = {1, -1, 0, 0, 1, -1, 1, -1};
 int fy[] = {0, 0, 1, -1, 1 , -1, -1, 1};
 
-
 vi trees;
 
 int segtree(int node, int l, int r, int L, int R, int v){ //update and query
-	//change the code as needed
-	if(L <= l && R >= r){
-		if(v != -1) trees[node] = v; //update the index
-		return trees[node];
-	}
-	if(R < l || r < L) return inf; //maybe needed to change
-	
-	int mid = (l + r) / 2;
-	int mn = min(segtree(node*2, l, mid, L, R, v),segtree(node*2+1, mid+1, r, L, R, v)); //maybe needed to change
-	trees[node] = min(trees[node*2] , trees[node*2+1]); //this line is for update any value and maybe needed to change
-	return mn;
+    //change the code as needed
+    if(L <= l && R >= r){
+        if(v != -1) trees[node] = v; //update the index
+        return trees[node];
+    }
+    if(R < l || r < L) return inf; //maybe needed to change
+    
+    int mid = (l + r) / 2;
+    int mn = min(segtree(node*2, l, mid, L, R, v),segtree(node*2+1, mid+1, r, L, R, v)); //maybe needed to change
+    trees[node] = min(trees[node*2] , trees[node*2+1]); //this line is for update any value and maybe needed to change
+    return mn;
 }
 
 
 void build_segtree(vi &a, int &n){ //build the segtree
-	//change the code as needed
-	while(__builtin_popcount(n) != 1){
-	    a.pb(inf); //maybe needed to change
-	    n++;
-	}
-	trees.resize(2*n);
+    //change the code as needed
+    while(__builtin_popcount(n) != 1){
+        a.pb(inf); //maybe needed to change
+        n++;
+    }
+    trees.resize(2*n);
     
-	f(i,0,n) trees[i+n] = a[i];
-	for(int i = n - 1; i >= 1; i--){
-		trees[i] = min(trees[i*2] , trees[i*2+1]); //maybe needed to change
-	}
+    FOR(i,0,n) trees[i+n] = a[i];
+    for(int i = n - 1; i >= 1; i--){
+        trees[i] = min(trees[i*2] , trees[i*2+1]); //maybe needed to change
+    }
 }
 
 
@@ -114,32 +115,32 @@ int main()
 { 
     FASTIO
     TestCase{
-    	//take input
-    	int n,q;
-    	cin >> n >> q;
-    	vi a(n);
-    	f(i,0,n) cin >> a[i];
+        //take input
+        int n,q;
+        cin >> n >> q;
+        vi a(n);
+        FOR(i,0,n) cin >> a[i];
 
-	int sz = n;
-    	build_segtree(a , sz);
-    	
-    	//query and update
-    	while(q--){
-    		int t;
-    		cin >> t;
-	    	if(t == 1){
-	    		int k,u;
-	    		cin >> k >> u;
-	    		k--;
-	    		segtree(1, 0, sz-1, k, k, u); //update kth index by u
-	    	}
-	    	else{
-	    		int a,b;
-	    		cin >> a >> b;
-	    		a--,b--;
-	    		cout << segtree(1, 0, sz-1, a, b, -1) << endl; //query in a given range
-	    	}
-    	}
+        int sz = n;
+        build_segtree(a , sz);
+        
+        //query and update
+        while(q--){
+            int t;
+            cin >> t;
+            if(t == 1){
+                int k,u;
+                cin >> k >> u;
+                k--;
+                segtree(1, 0, sz-1, k, k, u); //update kth index by u
+            }
+            else{
+                int a,b;
+                cin >> a >> b;
+                a--,b--;
+                cout << segtree(1, 0, sz-1, a, b, -1) << endl; //query in a given range
+            }
+        }
     }
     return 0;
 }
