@@ -140,15 +140,14 @@ public:
 	
 	int countWordsEqualTo(string &word){
 		Node *node = root;
-        for (int i = 0; i < word.length(); i++)
-        {
-            if (node -> containKey(word[i])){
-                node = node -> get(word[i]);
-            }
-            else return 0;
-        }
-        return node -> getEnd();
-    }
+		for (int i = 0; i < word.length(); i++){
+			if (node -> containKey(word[i])){
+				node = node -> get(word[i]);
+			}
+			else return 0;
+		}
+		return node -> getEnd();
+	}
 
 	int countWordsStartingWith(string & word){
 		Node * node = root;
