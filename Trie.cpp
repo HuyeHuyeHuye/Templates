@@ -126,7 +126,7 @@ public:
 		root = new Node();
 	}
 	
-	void insert(string word){
+	void insert(string &word){
 		Node * node = root;
 		for (int i = 0; i < word.length(); i++){
 			if (!node -> containKey(word[i])){
@@ -138,7 +138,7 @@ public:
 		node -> increaseEnd();
 	}
 	
-	int countWordsEqualTo(string &word){
+	int countWordsEqualTo(string word){
 		Node *node = root;
 		for (int i = 0; i < word.length(); i++){
 			if (node -> containKey(word[i])){
@@ -149,7 +149,7 @@ public:
 		return node -> getEnd();
 	}
 
-	int countWordsStartingWith(string & word){
+	int countWordsStartingWith(string &word){
 		Node * node = root;
 		for (int i = 0; i < word.length(); i++){
 			if(node -> containKey(word[i])){
@@ -160,7 +160,7 @@ public:
 		return node -> getPrefix();
 	}
 	
-	void erase(string & word){
+	void erase(string &word){
 		Node * node = root;
 		for (int i = 0; i < word.length(); i++){
 			if (node -> containKey(word[i])){
