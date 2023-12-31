@@ -138,7 +138,7 @@ public:
 		node -> increaseEnd();
 	}
 	
-	int countWordsEqualTo(string word){
+	int countWords(string &word){
 		Node *node = root;
 		for (int i = 0; i < word.length(); i++){
 			if (node -> containKey(word[i])){
@@ -149,7 +149,7 @@ public:
 		return node -> getEnd();
 	}
 
-	int countWordsStartingWith(string &word){
+	int startsWith(string &word){
 		Node * node = root;
 		for (int i = 0; i < word.length(); i++){
 			if(node -> containKey(word[i])){
@@ -178,7 +178,7 @@ public:
 void solve(){
 	Trie trie;
 	//trie.insert(s);
-	//trie.search(s);
+	//trie.countWords(s);
 	//trie.startsWith(s);
 	//trie.erase(s);
 }
