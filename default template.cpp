@@ -56,6 +56,7 @@ size_t operator()(uint64_t x) const {
 ll binpow(ll a,ll b,ll m){ll res=1;while(b>0){if(b&1)res=(res*a)%m;a=(a*a)%m;b/=2;}return res;}
 ll INV(ll x, ll m){x %= m;return binpow(x , m - 2, m);}
 
+#define int   ll
 #define pii   pair <int, int>
 #define pll   pair <ll, ll>
 #define vi    vector<int>
@@ -79,11 +80,15 @@ const long long N = 2e5 + 5, M = 1e9 + 7, mod = 998244353, INF = 1e18, inf = INT
 int fx[] = {1, -1, 0, 0, 1, -1, 1, -1};
 int fy[] = {0, 0, 1, -1, 1 , -1, -1, 1};
 
-int main()
+void solve(){
+	
+}
+
+int32_t main()
 { 
     FASTIO
     TestCase{
-    	
+    	solve();
     }
     return 0;
 }
