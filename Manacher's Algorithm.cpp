@@ -24,3 +24,6 @@ vector < int > ManacherAlgo(string &s){
             r = i + k;
         }
     }
+    s = t;
+    return p;
+}
