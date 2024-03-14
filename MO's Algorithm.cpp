@@ -50,11 +50,3 @@ vector < int > mo_s_algorithm(vector < Query > queries) {
     return answers;
 }
 
-int main()
-{ 
-    FASTIO
-    TestCase{
-    	
-    }
-    return 0;
-}
