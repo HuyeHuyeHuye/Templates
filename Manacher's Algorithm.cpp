@@ -1,3 +1,4 @@
+//longest palindromic substring  tc = O(n) 
 //here original string will be changed like #s1#s2#s3....# (size = 2*n+1)
 //vector p contains left or right side extended length. so, len = p[i] + 1 + p[i] (# incluced)
 
