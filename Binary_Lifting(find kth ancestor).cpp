@@ -1,12 +1,13 @@
-int n, LOG;
-vector < vector < int > > adj;
-vector < vector < int > > up;
-vector < int > depth;
+const int LOG = 20;
+vector < int > adj[N];
+int depth[N];
+int up[N][LOG];
 
+// for 1st call, par = root that means pass same value for v and par
 void dfs(int v, int par, int d){
     depth[v] = d;
     up[v][0] = par;
-    for(int i = 1; i <= LOG; i++){
+    for(int i = 1; i < LOG; i++){
         up[v][i] = up[up[v][i-1]][i-1];
     }
     for(auto &child : adj[v]){
@@ -16,9 +17,10 @@ void dfs(int v, int par, int d){
     }
 }
 
+// this function return kth ancestor of vertex v
 int get_kth(int v, int k){
     if(depth[v] < k) return -1;
-    for(int i = 0; i <= LOG; i++){
+    for(int i = 0; i < LOG; i++){
         if(k & (1 << i)){
             v = up[v][i];
         }
@@ -26,20 +28,24 @@ int get_kth(int v, int k){
     return v;
 }
 
-void preprocess(int root){
-    depth.resize(n+1);
-    LOG = ceil(log2(n+1));
-    up.assign(n+1, vector < int > (LOG+1));
-    dfs(root, root, 0);
-}
-void solve(){
-    cin >> n;
-    adj.resize(n+1, vector < int > ());
-    for(int i = 2; i <= n; i++){
-        int u, v;
-        cin >> u >> v;
-        adj[u].pb(v);
-        adj[v].pb(u);
+// this function return lowest common ancestor of x & y nodes
+int get_lca(int x, int y){
+    if(depth[x] < depth[y]) swap(x,y);
+    //get same depth
+    int k = depth[x] - depth[y];
+    for(int j = LOG-1; j >= 0; j--){
+        if(k & (1 << j)){
+            x = up[x][j];
+        }
     }
-    preprocess(1);
+    //if y was ancestor of x
+    if(x == y) return x;
+    //move both x & y with power two
+    for(int j = LOG-1; j >= 0; j--){
+        if(up[x][j] != up[y][j]){
+            x = up[x][j];
+            y = up[y][j];
+        }
+    }
+    return up[x][0];
 }
