@@ -46,6 +46,8 @@ bool is_ok(bitset< N > &dp){
 // ii) erase duplicate and make all elements unique
     a.erase(unique(all(a)),a.end());
 
+
+
 //dp with bitmask
         //int ans = 0;
 	for(int mask = 0; mask < (1 << n); mask++){
@@ -58,3 +60,15 @@ bool is_ok(bitset< N > &dp){
 			//if(__builtin_popcountll(mask) == m) ans = max(ans, dp[j][mask]);
 		}
 	}
+
+
+//hashing
+pii fun(string &s){
+    int d = 0, rem = 0;
+    for(int i = 0; i < s.size(); i++){
+        rem = rem * 26 + s[i] - 'a' + 1;
+        d += rem / M;
+        rem = rem % M;
+    }
+    return {d, rem};
+}
