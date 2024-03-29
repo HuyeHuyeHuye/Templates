@@ -45,3 +45,16 @@ bool is_ok(bitset< N > &dp){
     int e = unique(all(a)) - a.begin();
 // ii) erase duplicate and make all elements unique
     a.erase(unique(all(a)),a.end());
+
+//dp with bitmask
+        //int ans = 0;
+	for(int mask = 0; mask < (1 << n); mask++){
+		for(int j = 0; j < n; j++){
+			if(mask >> j & 1){
+				for(int i = 0; i < n; i++){
+					if(mask >> i & 1) dp[j][mask] = max(dp[j][mask], dp[i][mask ^ (1 << j)] + a[j] + cond[i][j]);
+				}
+			}
+			//if(__builtin_popcountll(mask) == m) ans = max(ans, dp[j][mask]);
+		}
+	}
