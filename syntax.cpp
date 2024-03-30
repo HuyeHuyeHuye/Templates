@@ -6,6 +6,7 @@ struct tupple{
 	}
 };
 
+
 // dp ... all possible sum (here N = maximum possible total sum + constant;)
         vi dp(N);
     	dp[0] = 1;
@@ -14,7 +15,8 @@ struct tupple{
     			if(dp[j]) dp[j + s[i]] = 1;
     		}
     	}
-     
+
+
 // by using bitset
         bitset < N > dp;
     	dp[0] = 1;
@@ -22,13 +24,16 @@ struct tupple{
     		dp |= dp << s[i];
     	}
 
-     
+
+
 //bitset pass by reference
 bool is_ok(bitset< N > &dp){
 	....
 }
+		
 // make zero all the bits of a bitset
    dp.reset();
+
 
 //bitmasking (all possible way 2^n)
     	int k = a.size();
@@ -40,12 +45,12 @@ bool is_ok(bitset< N > &dp){
             }
         }
 
+
 // unique all funciton
 // i) total unique elements:
     int e = unique(all(a)) - a.begin();
 // ii) erase duplicate and make all elements unique
     a.erase(unique(all(a)),a.end());
-
 
 
 //dp with bitmask
@@ -72,3 +77,8 @@ pii fun(string &s){
     }
     return {d, rem};
 }
+
+//***********************************************************************************************
+//binary search code link:     https://codeforces.com/contest/1486/submission/254078402         *
+//***********************************************************************************************
+
