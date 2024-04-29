@@ -38,6 +38,7 @@ void _print(T t, V... v) {__print(t); if (sizeof...(v)) cerr << ", "; _print(v..
 
 #define ll long long
 template <typename T> using ordered_set = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
+template <class type1> using ordered_multiset = tree <type1, null_type, less_equal <type1>, rb_tree_tag, tree_order_statistics_node_update>;
 struct custom_hash {
 static uint64_t splitmix64(uint64_t x) {
     // http://xorshift.di.unimi.it/splitmix64.c
