@@ -72,12 +72,10 @@ ll INV(ll x, ll m){x %= m;return binpow(x , m - 2, m);}
 #define TestCase    int TT; cin >> TT;for(int zz=1;zz<=TT;zz++)
 #define FASTIO  ios::sync_with_stdio(0);cin.tie(0);cout.tie(0);
 #define all(a)   a.begin(),a.end()
-#define FOR(i,a,b)  for(int i=a;i<b;i++)
-#define FORN(i,a,b)  for(int i=b-1;i>=a;i--)
 #define rep(i,a,b)  for(int i=a;i<=b;i++)
 #define rev(i,a,b)  for(int i=b;i>=a;i--)
 #define fs(val,y)   fixed<<setprecision(y)<<val
-const long long N = 2e5 + 5, M = 1e9 + 7, mod = 998244353, INF = 1e18, inf = INT_MAX;
+const long long N = 2e5 + 5, M = 1e9 + 7, mod = 998244353, INF = 1e18, inf = INT_MAX, bgpm = 100000000003;
 int fx[] = {1, -1, 0, 0, 1, -1, 1, -1};
 int fy[] = {0, 0, 1, -1, 1 , -1, -1, 1};
 
