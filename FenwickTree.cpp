@@ -31,7 +31,7 @@ struct FenwickTreeOneBasedIndexing {
 };
 
 void solve() {
-    //FenwickTreeOneBasedIndexing bit(n);
+    //FenwickTreeOneBasedIndexing bit(n+2);
     //bit.add(idex, value);
     //cout << bit.sum(l, r) << endl;
 }
