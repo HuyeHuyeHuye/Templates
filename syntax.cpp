@@ -67,16 +67,9 @@ bool is_ok(bitset< N > &dp){
 	}
 
 
-//hashing
-pii fun(string &s){
-    int d = 0, rem = 0;
-    for(int i = 0; i < s.size(); i++){
-        rem = rem * 26 + s[i] - 'a' + 1;
-        d += rem / M;
-        rem = rem % M;
-    }
-    return {d, rem};
-}
+//************************************************************************************
+//hashing code link:     https://codeforces.com/contest/1968/submission/259282117    *
+//************************************************************************************
 
 //***********************************************************************************************
 //binary search code link:     https://codeforces.com/contest/1486/submission/254078402         *
