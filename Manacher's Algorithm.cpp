@@ -17,7 +17,7 @@ vector < int > ManacherAlgo(string &s){
         int k;
         if(i > r) k = 0;
         else k = min(p[l + r - i], r - i);
-        while(i-k >= 0 && i+k < n && t[i-k] == t[i+k]) k++;
+        while(i-k > 0 && i+k < n && t[i-k] == t[i+k]) k++;
         if(t[i-k] != t[i+k]) k--;
         p[i] = k;
         if(i+k > r){
