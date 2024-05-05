@@ -75,3 +75,5 @@ bool is_ok(bitset< N > &dp){
 //binary search code link:     https://codeforces.com/contest/1486/submission/254078402         *
 //***********************************************************************************************
 
+// MMI precalculating code link:  https://codeforces.com/contest/1420/submission/259601309
+
