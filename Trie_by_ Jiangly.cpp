@@ -29,8 +29,5 @@ int query(int x) {
     }
     return ans;
 }
-
-void solve(){
-	//add(x , t); for inserting t = 1, for erasing t = -1
-	//query(x);
-}
+//add(x , t); for inserting t = 1, for erasing t = -1
+//query(x);
